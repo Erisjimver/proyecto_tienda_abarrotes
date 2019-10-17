@@ -60,11 +60,16 @@ public class EntornoAdmin extends javax.swing.JFrame {
         btnUsuarios = new javax.swing.JButton();
         btnVentas = new javax.swing.JButton();
         btnClientes = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        PanelCortoUsuarios = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         lbltotal = new javax.swing.JLabel();
+        PanelCortoVentas = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        lbltotal1 = new javax.swing.JLabel();
         B_About = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -210,13 +215,13 @@ public class EntornoAdmin extends javax.swing.JFrame {
         });
         PanelInferior.add(btnClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, -1, 160));
 
-        jPanel3.setBackground(new java.awt.Color(153, 0, 153));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PanelCortoUsuarios.setBackground(new java.awt.Color(153, 0, 153));
+        PanelCortoUsuarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("TOTAL USUARIOS");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, 20));
+        PanelCortoUsuarios.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, 20));
 
         jPanel4.setBackground(new java.awt.Color(102, 0, 102));
 
@@ -239,11 +244,48 @@ public class EntornoAdmin extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 120));
+        PanelCortoUsuarios.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 120));
 
         lbltotal.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         lbltotal.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(lbltotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 60, 50));
+        PanelCortoUsuarios.add(lbltotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 60, 50));
+
+        PanelCortoVentas.setBackground(new java.awt.Color(51, 255, 255));
+        PanelCortoVentas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("VENTAS");
+        PanelCortoVentas.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, 20));
+
+        jPanel6.setBackground(new java.awt.Color(0, 102, 102));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 100)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("$");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addGap(33, 33, 33))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        PanelCortoVentas.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 120));
+
+        lbltotal1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lbltotal1.setForeground(new java.awt.Color(255, 255, 255));
+        PanelCortoVentas.add(lbltotal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 60, 50));
 
         javax.swing.GroupLayout A_Panel_HomeLayout = new javax.swing.GroupLayout(A_Panel_Home);
         A_Panel_Home.setLayout(A_Panel_HomeLayout);
@@ -258,7 +300,10 @@ public class EntornoAdmin extends javax.swing.JFrame {
                         .addGap(54, 54, 54)
                         .addGroup(A_Panel_HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(PanelInferior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(A_Panel_HomeLayout.createSequentialGroup()
+                                .addComponent(PanelCortoUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(88, 88, 88)
+                                .addComponent(PanelCortoVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
         A_Panel_HomeLayout.setVerticalGroup(
@@ -269,8 +314,10 @@ public class EntornoAdmin extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(PanelInferior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGroup(A_Panel_HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelCortoUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanelCortoVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27))
         );
 
         B_About.setBackground(new java.awt.Color(255, 255, 255));
@@ -335,10 +382,10 @@ public class EntornoAdmin extends javax.swing.JFrame {
             .addGroup(PanelEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(PanelEntornoLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(B_About, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
+                    .addComponent(B_About, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(PanelEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Lienzo, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE))
+                .addComponent(Lienzo, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE))
         );
 
         PanelNavegacion.setBackground(new java.awt.Color(153, 0, 51));
@@ -698,6 +745,8 @@ public class EntornoAdmin extends javax.swing.JFrame {
     public javax.swing.JPanel B_About;
     private javax.swing.JPanel Lienzo;
     private javax.swing.JPanel PanelCabecera;
+    private javax.swing.JPanel PanelCortoUsuarios;
+    private javax.swing.JPanel PanelCortoVentas;
     private javax.swing.JPanel PanelEntorno;
     private javax.swing.JPanel PanelInferior;
     private javax.swing.JPanel PanelLienzo;
@@ -720,15 +769,18 @@ public class EntornoAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     public static javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lbltotal;
+    private javax.swing.JLabel lbltotal1;
     private javax.swing.JButton maximisar4;
     // End of variables declaration//GEN-END:variables
 }

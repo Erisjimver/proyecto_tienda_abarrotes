@@ -8,12 +8,11 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import modelo.Conexion;
 import static vista.EntornoAdmin.lblUsuario;
-//import static vista.EntornoAdmin.lblestado;
 public class Login extends javax.swing.JFrame {
 
     static ResultSet r;
     static Statement st;
-
+    String usu="",pass="";
     Conexion cn=new Conexion();  
     Connection c= cn.conexion();
     
@@ -31,7 +30,7 @@ public class Login extends javax.swing.JFrame {
         this.setIconImage(new ImageIcon(getClass().getResource("/vista/imagen/logo.png")).getImage());
     }
     
-    void acceder(String usuario, String pas)
+    void acceder(String usuario, String pas) throws Exception
     {
        String cap="";
        String sql="select tp.descripcion from usuarios u inner join tipo_usuarios tp on u.id_tipo_usuario = tp.id_tipo_usuario where u.usuario='"+usuario+"' and u.password='"+pas+"'";         
@@ -74,18 +73,18 @@ public class Login extends javax.swing.JFrame {
         }
 
   
-    public void conexion(){
+    public void conexion() throws Exception{
             
-            String usu="",pass="";
+            
             
             usu= TextUsuario.getText();
             pass= new String(Password.getPassword());
             try{
-                    if((usu.equals("Escriba su usuario")&&pass.equals("***************"))||(usu.equals("")&&pass.equals(""))){
+                    if((TextUsuario.equals("Escriba su usuario")&&pass.equals("***************"))||(usu.equals("")&&pass.equals(""))){
                       lblestado.setText("No ha ingresado los datos...");  
                     }else
                     {
-                       acceder(usu, pass); 
+                       acceder(usu,pass); 
                     }
                         
             }catch(HeadlessException e){
@@ -329,26 +328,29 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     
     
-      conexion();
-      /*
-    EntornoVendedor ev=new EntornoVendedor();
-    EntornoAdmin ea=new EntornoAdmin();
-    //ea.show();
-    //this.setVisible(false);
-    
-    try{
-        if(TextUsuario.getText().equals("Israel") && Password.getText().equals("12345")){
-                ea.show();
-                lblUsuario.setText("Israel");
-                this.setVisible(false);
-        }
-        else {
+        try {
+            conexion();
+            /*
+            EntornoVendedor ev=new EntornoVendedor();
+            EntornoAdmin ea=new EntornoAdmin();
+            //ea.show();
+            //this.setVisible(false);
+            
+            try{
+            if(TextUsuario.getText().equals("Israel") && Password.getText().equals("12345")){
+            ea.show();
+            lblUsuario.setText("Israel");
+            this.setVisible(false);
+            }
+            else {
             lblestado.setText("Datos incorrectos o no ingresados...");
+            }
+            }catch(Exception e){
+            System.out.println("asdfasds" + e);
+            }
+        */      } catch (Exception ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }catch(Exception e){
-        System.out.println("asdfasds" + e);
-    }
-*/
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TextUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextUsuarioActionPerformed
@@ -364,7 +366,11 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(evt.getKeyCode()==KeyEvent.VK_ENTER)
         {
-            conexion();
+            try {
+                conexion();
+            } catch (Exception ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_PasswordKeyReleased
 
